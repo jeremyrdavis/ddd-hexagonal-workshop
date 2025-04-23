@@ -15,4 +15,5 @@
 -- Create an anti corruption layer for Sponsor Attendees
 - Create a SponsorAttendeeAdapter that translates a SponsorAttendee
 - Create a SponsorsEndpoint with CRUD methods
+- Create a CurrencyDomainService to calculate the price in multiple currencies
 
