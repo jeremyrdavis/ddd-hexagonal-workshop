@@ -1,6 +1,5 @@
 package com.redhat.demos.infrastructure;
 
-import com.redhat.demos.domain.Attendee;
 import com.redhat.demos.domain.AttendeeService;
 import com.redhat.demos.domain.RegisterAttendeeCommand;
 import jakarta.inject.Inject;

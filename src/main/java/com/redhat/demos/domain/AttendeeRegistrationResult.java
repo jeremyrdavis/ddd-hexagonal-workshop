@@ -1,6 +1,8 @@
 package com.redhat.demos.domain;
 
-public record AttendeeRegistrationResult(Attendee attendee,
+import com.redhat.demos.persistence.AttendeeEntity;
+
+public record AttendeeRegistrationResult(AttendeeEntity attendee,
                                          AttendeeRegistrationEvent attendeeRegistrationEvent,
                                          SwagEvent swagEvent,
                                          CateringEvent cateringEvent) {

@@ -1,6 +1,6 @@
 package com.redhat.demos.domain;
 
-import io.smallrye.reactive.messaging.annotations.EmitterFactoryFor;
+import com.redhat.demos.persistence.AttendeeRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
@@ -20,7 +20,7 @@ public class AttendeeService {
     public void registerAttendee(RegisterAttendeeCommand registerAttendeeCommand) {
 
         //create an attendee
-        AttendeeRegistrationResult result = Attendee.registerAttendee(registerAttendeeCommand);
+        AttendeeRegistrationResult result = AttendeeDomainObject.registerAttendee(registerAttendeeCommand);
         //persist the attendee
         attendeeRepository.persist(result.attendee());
 
