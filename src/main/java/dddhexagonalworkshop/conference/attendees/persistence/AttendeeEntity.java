@@ -1,9 +1,9 @@
-package com.redhat.demos.persistence;
+package dddhexagonalworkshop.conference.attendees.persistence;
 
-import com.redhat.demos.domain.AddressValueObject;
-import com.redhat.demos.domain.Badge;
-import com.redhat.demos.domain.MealPreference;
-import com.redhat.demos.domain.TShirtSize;
+import dddhexagonalworkshop.conference.attendees.api.AddressValueObject;
+import dddhexagonalworkshop.conference.attendees.domain.Badge;
+import dddhexagonalworkshop.conference.attendees.api.MealPreference;
+import dddhexagonalworkshop.conference.attendees.api.TShirtSize;
 import jakarta.persistence.*;
 
 @Entity @Table(name = "attendee")

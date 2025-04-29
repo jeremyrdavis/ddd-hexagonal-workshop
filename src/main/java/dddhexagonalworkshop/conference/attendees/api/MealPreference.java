@@ -1,4 +1,4 @@
-package com.redhat.demos.domain;
+package dddhexagonalworkshop.conference.attendees.api;
 
 public enum MealPreference {
 

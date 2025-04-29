@@ -1,4 +1,4 @@
-package com.redhat.demos.persistence;
+package dddhexagonalworkshop.conference.attendees.persistence;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

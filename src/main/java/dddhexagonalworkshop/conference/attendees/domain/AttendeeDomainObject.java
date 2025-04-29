@@ -1,6 +1,10 @@
-package com.redhat.demos.domain;
+package dddhexagonalworkshop.conference.attendees.domain;
 
-import com.redhat.demos.persistence.AttendeeEntity;
+import dddhexagonalworkshop.conference.attendees.api.AttendeeRegistrationEvent;
+import dddhexagonalworkshop.conference.attendees.api.CateringEvent;
+import dddhexagonalworkshop.conference.attendees.api.RegisterAttendeeCommand;
+import dddhexagonalworkshop.conference.attendees.api.SwagEvent;
+import dddhexagonalworkshop.conference.attendees.persistence.AttendeeEntity;
 
 import java.util.UUID;
 
