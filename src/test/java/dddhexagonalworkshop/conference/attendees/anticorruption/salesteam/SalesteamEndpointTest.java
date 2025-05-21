@@ -1,10 +1,10 @@
 package dddhexagonalworkshop.conference.attendees.anticorruption.salesteam;
 
-import dddhexagonalworkshop.conference.attendees.api.AddressValueObject;
+import dddhexagonalworkshop.conference.attendees.api.AddressDTO;
 import dddhexagonalworkshop.conference.attendees.api.MealPreference;
 import dddhexagonalworkshop.conference.attendees.api.RegisterAttendeeCommand;
 import dddhexagonalworkshop.conference.attendees.api.TShirtSize;
-import dddhexagonalworkshop.conference.attendees.domain.AttendeeService;
+import dddhexagonalworkshop.conference.attendees.domain.services.AttendeeService;
 import io.quarkus.test.junit.QuarkusTest;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.core.Response;
@@ -74,6 +74,6 @@ public class SalesteamEndpointTest {
         assertEquals(false, capturedCommands.get(1).isStudent());
         assertEquals(MealPreference.NONE, capturedCommands.get(1).mealPreference());
         assertEquals(TShirtSize.LARGE, capturedCommands.get(1).tShirtSize());
-        assertEquals(new AddressValueObject("Bag End, Hobbiton", "", "The Shire", "Shire", "12345", "USA"), capturedCommands.get(1).addressValueObject());
+        assertEquals(new AddressDTO("Bag End, Hobbiton", "", "The Shire", "Shire", "12345", "USA"), capturedCommands.get(1).addressDTO());
     }
 }

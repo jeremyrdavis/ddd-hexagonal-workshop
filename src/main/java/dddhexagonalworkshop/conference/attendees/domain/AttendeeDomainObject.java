@@ -10,7 +10,7 @@ import java.util.UUID;
 
 public class AttendeeDomainObject {
 
-    protected static AttendeeRegistrationResult registerAttendee(RegisterAttendeeCommand registerAttendeeCommand) {
+    public static AttendeeRegistrationResult registerAttendee(RegisterAttendeeCommand registerAttendeeCommand) {
 
         AttendeeEntity attendee = new AttendeeEntity(
                 generateBadgeId(registerAttendeeCommand.email()),
@@ -20,7 +20,7 @@ public class AttendeeDomainObject {
                 registerAttendeeCommand.isEmployee(),
                 registerAttendeeCommand.mealPreference(),
                 registerAttendeeCommand.tShirtSize(),
-                registerAttendeeCommand.addressValueObject());
+                registerAttendeeCommand.addressDTO());
 
         Double calculatedPrice = calculatePrice(100.0, registerAttendeeCommand);
         CateringEvent cateringEvent = new CateringEvent(registerAttendeeCommand.mealPreference());

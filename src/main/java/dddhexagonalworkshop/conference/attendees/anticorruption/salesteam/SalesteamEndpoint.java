@@ -1,9 +1,9 @@
 package dddhexagonalworkshop.conference.attendees.anticorruption.salesteam;
 
-import dddhexagonalworkshop.conference.attendees.api.AddressValueObject;
+import dddhexagonalworkshop.conference.attendees.api.AddressDTO;
 import dddhexagonalworkshop.conference.attendees.api.MealPreference;
 import dddhexagonalworkshop.conference.attendees.api.RegisterAttendeeCommand;
-import dddhexagonalworkshop.conference.attendees.domain.AttendeeService;
+import dddhexagonalworkshop.conference.attendees.domain.services.AttendeeService;
 import io.quarkus.logging.Log;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
@@ -35,7 +35,7 @@ public class SalesteamEndpoint {
                         false,
                         mapDietaryRequirements(customer.customerDetails().dietaryRequirements()),
                         customer.customerDetails().tShirtSize(),
-                        new AddressValueObject(
+                        new AddressDTO(
                         customer.address(),
                         customer.address2(),
                         customer.city(),

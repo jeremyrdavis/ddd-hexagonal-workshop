@@ -1,7 +1,7 @@
 package dddhexagonalworkshop.conference.attendees.infrastructure;
 
-import dddhexagonalworkshop.conference.attendees.api.AttendeeValueObject;
-import dddhexagonalworkshop.conference.attendees.domain.AttendeeService;
+import dddhexagonalworkshop.conference.attendees.api.AttendeeDTO;
+import dddhexagonalworkshop.conference.attendees.domain.services.AttendeeService;
 import dddhexagonalworkshop.conference.attendees.api.RegisterAttendeeCommand;
 import io.quarkus.logging.Log;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -19,7 +19,7 @@ public class KafkaEndpoint {
     @Transactional
     public void registerAttendee(RegisterAttendeeCommand registerAttendeeCommand) {
         Log.debugf("Registering attendee from Kafka: %s", registerAttendeeCommand);
-        AttendeeValueObject result = attendeeService.registerAttendee(registerAttendeeCommand);
+        AttendeeDTO result = attendeeService.registerAttendee(registerAttendeeCommand);
         Log.debugf("Registered attendee: %s", result);
     }
 }

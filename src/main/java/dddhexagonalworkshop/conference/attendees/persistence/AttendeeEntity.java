@@ -1,6 +1,6 @@
 package dddhexagonalworkshop.conference.attendees.persistence;
 
-import dddhexagonalworkshop.conference.attendees.api.AddressValueObject;
+import dddhexagonalworkshop.conference.attendees.api.AddressDTO;
 import dddhexagonalworkshop.conference.attendees.domain.Badge;
 import dddhexagonalworkshop.conference.attendees.api.MealPreference;
 import dddhexagonalworkshop.conference.attendees.api.TShirtSize;
@@ -36,7 +36,7 @@ public class AttendeeEntity {
 
     }
 
-    public AttendeeEntity(Badge badge, String email, String name, boolean student, boolean employee, MealPreference mealPreference, TShirtSize tShirtSize, AddressValueObject address) {
+    public AttendeeEntity(Badge badge, String email, String name, boolean student, boolean employee, MealPreference mealPreference, TShirtSize tShirtSize, AddressDTO address) {
         this.badge = new BadgeEntity(badge.badgeNumber(), badge.email());
         this.email = email;
         this.name = name;

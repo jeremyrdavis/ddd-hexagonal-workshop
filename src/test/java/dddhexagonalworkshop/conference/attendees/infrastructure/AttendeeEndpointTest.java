@@ -1,7 +1,7 @@
 package dddhexagonalworkshop.conference.attendees.infrastructure;
 
-import dddhexagonalworkshop.conference.attendees.api.AttendeeValueObject;
-import dddhexagonalworkshop.conference.attendees.domain.AttendeeService;
+import dddhexagonalworkshop.conference.attendees.api.AttendeeDTO;
+import dddhexagonalworkshop.conference.attendees.domain.services.AttendeeService;
 import io.quarkus.test.InjectMock;
 import io.quarkus.test.junit.QuarkusTest;
 import jakarta.ws.rs.core.MediaType;
@@ -47,7 +47,7 @@ public class AttendeeEndpointTest {
     @Test
     public void testRegisterAttendeeEndpoint() {
         // Stub the attendeeService to return a predefined AttendeeValueObject
-        AttendeeValueObject stubbedAttendee = new AttendeeValueObject("Bilbo Baggins", "bilbo@theshire.uk");
+        AttendeeDTO stubbedAttendee = new AttendeeDTO("Bilbo Baggins", "bilbo@theshire.uk");
         when(attendeeService.registerAttendee(Mockito.any()))
                 .thenReturn(stubbedAttendee);
 
@@ -65,7 +65,7 @@ public class AttendeeEndpointTest {
     @Test
     public void testGetAttendeeEndpoint() {
         // Stub the attendeeService to return a predefined AttendeeValueObject when the email is "john.doe@example.com"
-        AttendeeValueObject stubbedAttendee = new AttendeeValueObject("John Doe", "john.doe@example.com");
+        AttendeeDTO stubbedAttendee = new AttendeeDTO("John Doe", "john.doe@example.com");
         when(attendeeService.lookupAttendee("john.doe@example.com"))
                 .thenReturn(Optional.of(stubbedAttendee));
 

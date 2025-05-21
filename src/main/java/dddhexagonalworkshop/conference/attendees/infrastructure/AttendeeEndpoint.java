@@ -1,8 +1,7 @@
 package dddhexagonalworkshop.conference.attendees.infrastructure;
 
-import dddhexagonalworkshop.conference.attendees.api.AttendeeEmail;
-import dddhexagonalworkshop.conference.attendees.api.AttendeeValueObject;
-import dddhexagonalworkshop.conference.attendees.domain.AttendeeService;
+import dddhexagonalworkshop.conference.attendees.api.AttendeeDTO;
+import dddhexagonalworkshop.conference.attendees.domain.services.AttendeeService;
 import dddhexagonalworkshop.conference.attendees.api.RegisterAttendeeCommand;
 import io.quarkus.logging.Log;
 import jakarta.inject.Inject;
@@ -24,9 +23,9 @@ public class AttendeeEndpoint {
     public Response createAttendee(RegisterAttendeeCommand registerAttendeeCommand) {
 
         Log.debugf("Creating attendee %s", registerAttendeeCommand);
-        AttendeeValueObject attendeeValueObject = attendeeService.registerAttendee(registerAttendeeCommand);
-        Log.debugf("Created attendee %s", attendeeValueObject);
-        return Response.created(URI.create("/" + attendeeValueObject.email())).entity(attendeeValueObject).build();
+        AttendeeDTO attendeeDTO = attendeeService.registerAttendee(registerAttendeeCommand);
+        Log.debugf("Created attendee %s", attendeeDTO);
+        return Response.created(URI.create("/" + attendeeDTO.email())).entity(attendeeDTO).build();
     }
 
     @GET
@@ -37,9 +36,9 @@ public class AttendeeEndpoint {
             Log.debugf("Attendee with email %s not found", email);
             return Response.status(Response.Status.NOT_FOUND).build();
         }else{
-            AttendeeValueObject attendeeValueObject = attendeeService.lookupAttendee(email).get();
-            Log.debugf("Attendee with email %s found", attendeeValueObject);
-            return Response.ok(attendeeValueObject).build();
+            AttendeeDTO attendeeDTO = attendeeService.lookupAttendee(email).get();
+            Log.debugf("Attendee with email %s found", attendeeDTO);
+            return Response.ok(attendeeDTO).build();
         }
     }
 }
