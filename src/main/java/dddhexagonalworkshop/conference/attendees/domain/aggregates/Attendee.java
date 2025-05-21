@@ -1,14 +1,16 @@
-package dddhexagonalworkshop.conference.attendees.domain;
+package dddhexagonalworkshop.conference.attendees.domain.aggregates;
 
 import dddhexagonalworkshop.conference.attendees.api.AttendeeRegistrationEvent;
 import dddhexagonalworkshop.conference.attendees.api.CateringEvent;
 import dddhexagonalworkshop.conference.attendees.api.RegisterAttendeeCommand;
 import dddhexagonalworkshop.conference.attendees.api.SwagEvent;
+import dddhexagonalworkshop.conference.attendees.domain.AttendeeRegistrationResult;
+import dddhexagonalworkshop.conference.attendees.domain.Badge;
 import dddhexagonalworkshop.conference.attendees.persistence.AttendeeEntity;
 
 import java.util.UUID;
 
-public class AttendeeDomainObject {
+public class Attendee {
 
     public static AttendeeRegistrationResult registerAttendee(RegisterAttendeeCommand registerAttendeeCommand) {
 

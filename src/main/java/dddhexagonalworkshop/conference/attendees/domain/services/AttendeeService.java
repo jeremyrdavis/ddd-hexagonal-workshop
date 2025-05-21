@@ -3,7 +3,7 @@ package dddhexagonalworkshop.conference.attendees.domain.services;
 import dddhexagonalworkshop.conference.attendees.api.AttendeeDTO;
 import dddhexagonalworkshop.conference.attendees.api.AttendeeRegistrationEvent;
 import dddhexagonalworkshop.conference.attendees.api.RegisterAttendeeCommand;
-import dddhexagonalworkshop.conference.attendees.domain.AttendeeDomainObject;
+import dddhexagonalworkshop.conference.attendees.domain.aggregates.Attendee;
 import dddhexagonalworkshop.conference.attendees.domain.AttendeeRegistrationResult;
 import dddhexagonalworkshop.conference.attendees.persistence.AttendeeEntity;
 import dddhexagonalworkshop.conference.attendees.persistence.AttendeeRepository;
@@ -30,7 +30,7 @@ public class AttendeeService {
     public AttendeeDTO registerAttendee(RegisterAttendeeCommand registerAttendeeCommand) {
 
         //create an attendee
-        AttendeeRegistrationResult result = AttendeeDomainObject.registerAttendee(registerAttendeeCommand);
+        AttendeeRegistrationResult result = Attendee.registerAttendee(registerAttendeeCommand);
 
         //persist the attendee
         QuarkusTransaction.requiringNew().run(() -> {

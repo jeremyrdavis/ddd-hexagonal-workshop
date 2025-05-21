@@ -1,6 +1,5 @@
 package dddhexagonalworkshop.conference.attendees.persistence;
 
-import dddhexagonalworkshop.conference.attendees.domain.AttendeeDomainObject;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 
