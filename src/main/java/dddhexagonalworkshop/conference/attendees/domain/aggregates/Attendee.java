@@ -5,7 +5,7 @@ import dddhexagonalworkshop.conference.sharedkernel.events.CateringEvent;
 import dddhexagonalworkshop.conference.attendees.api.RegisterAttendeeCommand;
 import dddhexagonalworkshop.conference.attendees.api.SwagEvent;
 import dddhexagonalworkshop.conference.attendees.domain.AttendeeRegistrationResult;
-import dddhexagonalworkshop.conference.attendees.domain.Badge;
+import dddhexagonalworkshop.conference.attendees.domain.valueobjects.Badge;
 import dddhexagonalworkshop.conference.attendees.persistence.AttendeeEntity;
 
 import java.util.UUID;
@@ -20,8 +20,6 @@ public class Attendee {
                 registerAttendeeCommand.name(),
                 registerAttendeeCommand.isStudent(),
                 registerAttendeeCommand.isEmployee(),
-                registerAttendeeCommand.mealPreference(),
-                registerAttendeeCommand.tShirtSize(),
                 registerAttendeeCommand.addressDTO());
 
         Double calculatedPrice = calculatePrice(100.0, registerAttendeeCommand);

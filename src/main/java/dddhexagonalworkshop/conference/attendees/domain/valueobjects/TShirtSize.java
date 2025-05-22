@@ -8,7 +8,6 @@ import java.util.List;
  * TShirtSize value object that encapsulates t-shirt size validation and behavior.
  * This is an example of a Domain-Driven Design value object implemented as a record.
  */
-@Embeddable
 public record TShirtSize(String value) {
 
     private static final List<String> VALID_SIZES = Arrays.asList(

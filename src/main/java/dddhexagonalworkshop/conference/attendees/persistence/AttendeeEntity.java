@@ -1,7 +1,7 @@
 package dddhexagonalworkshop.conference.attendees.persistence;
 
 import dddhexagonalworkshop.conference.attendees.api.AddressDTO;
-import dddhexagonalworkshop.conference.attendees.domain.Badge;
+import dddhexagonalworkshop.conference.attendees.domain.valueobjects.Badge;
 import dddhexagonalworkshop.conference.attendees.api.MealPreference;
 import dddhexagonalworkshop.conference.attendees.domain.valueobjects.TShirtSize;
 import jakarta.persistence.*;
@@ -20,11 +20,6 @@ public class AttendeeEntity {
 
     private boolean employee;
 
-    @Enumerated(EnumType.STRING)
-    private MealPreference mealPreference;
-
-    private TShirtSize tShirtSize;
-
     @OneToOne
     private AddressEntity address;
 
@@ -35,14 +30,12 @@ public class AttendeeEntity {
 
     }
 
-    public AttendeeEntity(Badge badge, String email, String name, boolean student, boolean employee, MealPreference mealPreference, TShirtSize tShirtSize, AddressDTO address) {
+    public AttendeeEntity(Badge badge, String email, String name, boolean student, boolean employee, AddressDTO address) {
         this.badge = new BadgeEntity(badge.badgeNumber(), badge.email());
         this.email = email;
         this.name = name;
         this.student = student;
         this.employee = employee;
-        this.mealPreference = mealPreference;
-        this.tShirtSize = tShirtSize;
         this.address = new AddressEntity(
                 address.street(),
                 address.street2(),
@@ -70,14 +63,6 @@ public class AttendeeEntity {
 
     public boolean isEmployee() {
         return employee;
-    }
-
-    public MealPreference getMealPreference() {
-        return mealPreference;
-    }
-
-    public TShirtSize gettShirtSize() {
-        return tShirtSize;
     }
 
     public AddressEntity getAddress() {

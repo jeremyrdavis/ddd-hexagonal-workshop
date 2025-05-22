@@ -7,7 +7,6 @@ import java.util.regex.Pattern;
  * Email value object that encapsulates email validation and behavior.
  * This is an example of a Domain-Driven Design value object implemented as a record.
  */
-@Embeddable
 public record Email(String value) {
     // Regular expression for basic email validation
     private static final Pattern EMAIL_PATTERN = Pattern.compile(

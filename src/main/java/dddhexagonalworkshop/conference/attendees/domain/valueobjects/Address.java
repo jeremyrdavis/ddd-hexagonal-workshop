@@ -7,7 +7,6 @@ import java.util.Objects;
  * Address value object that encapsulates address validation and behavior.
  * This is an example of a Domain-Driven Design value object implemented as a record.
  */
-@Embeddable
 public record Address(
         String street,
         String street2,
