@@ -10,7 +10,7 @@ import jakarta.transaction.Transactional;
 import org.eclipse.microprofile.reactive.messaging.Incoming;
 
 @ApplicationScoped
-public class KafkaEndpoint {
+public class AttendeeEventPublisher {
 
     @Inject
     AttendeeService attendeeService;

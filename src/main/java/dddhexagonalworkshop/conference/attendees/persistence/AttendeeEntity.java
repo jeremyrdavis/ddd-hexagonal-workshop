@@ -3,7 +3,7 @@ package dddhexagonalworkshop.conference.attendees.persistence;
 import dddhexagonalworkshop.conference.attendees.api.AddressDTO;
 import dddhexagonalworkshop.conference.attendees.domain.Badge;
 import dddhexagonalworkshop.conference.attendees.api.MealPreference;
-import dddhexagonalworkshop.conference.attendees.api.TShirtSize;
+import dddhexagonalworkshop.conference.attendees.domain.valueobjects.TShirtSize;
 import jakarta.persistence.*;
 
 @Entity @Table(name = "attendee")
@@ -23,7 +23,6 @@ public class AttendeeEntity {
     @Enumerated(EnumType.STRING)
     private MealPreference mealPreference;
 
-    @Enumerated(EnumType.STRING)
     private TShirtSize tShirtSize;
 
     @OneToOne

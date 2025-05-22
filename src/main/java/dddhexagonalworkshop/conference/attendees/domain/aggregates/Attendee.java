@@ -1,7 +1,7 @@
 package dddhexagonalworkshop.conference.attendees.domain.aggregates;
 
 import dddhexagonalworkshop.conference.attendees.api.AttendeeRegistrationEvent;
-import dddhexagonalworkshop.conference.attendees.api.CateringEvent;
+import dddhexagonalworkshop.conference.sharedkernel.events.CateringEvent;
 import dddhexagonalworkshop.conference.attendees.api.RegisterAttendeeCommand;
 import dddhexagonalworkshop.conference.attendees.api.SwagEvent;
 import dddhexagonalworkshop.conference.attendees.domain.AttendeeRegistrationResult;
