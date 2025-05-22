@@ -3,6 +3,7 @@ package dddhexagonalworkshop.conference.attendees.anticorruption.salesteam;
 import dddhexagonalworkshop.conference.attendees.api.AddressDTO;
 import dddhexagonalworkshop.conference.attendees.api.MealPreference;
 import dddhexagonalworkshop.conference.attendees.api.RegisterAttendeeCommand;
+import dddhexagonalworkshop.conference.attendees.domain.valueobjects.Name;
 
 import java.util.List;
 
@@ -12,7 +13,9 @@ public class SalesteamToDomainTranslator {
         return customers.stream()
                 .map(customer -> new RegisterAttendeeCommand(
                         customer.email(),
-                        customer.firstName() + " " + customer.lastName(),
+                        new Name(
+                                customer.firstName(),
+                                customer.lastName()),
                         customer.customerDetails().student(),
                         false,
                         mapDietaryRequirements(customer.customerDetails().dietaryRequirements()),

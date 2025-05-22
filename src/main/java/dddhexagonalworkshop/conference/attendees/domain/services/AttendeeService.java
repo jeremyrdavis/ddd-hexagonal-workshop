@@ -40,7 +40,7 @@ public class AttendeeService {
         //notify the system that a new attendee has been registered
         attendeesTopic.send(result.attendeeRegistrationEvent());
 
-        AttendeeDTO attendeeDTO = new AttendeeDTO(result.attendee().getName(), result.attendee().getEmail());
+        AttendeeDTO attendeeDTO = new AttendeeDTO(result.attendee().getFullName(), result.attendee().getEmail());
         Log.debugf("Returning attendee %s", attendeeDTO);
         return attendeeDTO;
     }
@@ -49,7 +49,7 @@ public class AttendeeService {
         Log.debugf("Looking up attendee with email: %s", email);
         if(attendeeRepository.findByEmail(email).isPresent()) {
             AttendeeEntity attendeeEntity = attendeeRepository.findByEmail(email).get();
-            return Optional.of(new AttendeeDTO(attendeeEntity.getName(), attendeeEntity.getEmail()));
+            return Optional.of(new AttendeeDTO(attendeeEntity.getFullName(), attendeeEntity.getEmail()));
         }else {
             Log.debugf("Attendee with email %s not found", email);
             return Optional.empty();

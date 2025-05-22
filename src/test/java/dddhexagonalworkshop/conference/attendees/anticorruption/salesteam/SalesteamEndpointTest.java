@@ -70,7 +70,7 @@ public class SalesteamEndpointTest {
         List<RegisterAttendeeCommand> capturedCommands = commandCaptor.getAllValues();
 
         assertEquals("samwise.gamgee@theshire.uk", capturedCommands.get(1).email());
-        assertEquals("Samwise Gamgee", capturedCommands.get(1).name());
+        assertEquals("Samwise Gamgee", capturedCommands.get(1).name().getFullName());
         assertEquals(false, capturedCommands.get(1).isStudent());
         assertEquals(MealPreference.NONE, capturedCommands.get(1).mealPreference());
         assertEquals(TShirtSize.LARGE, capturedCommands.get(1).tShirtSize());

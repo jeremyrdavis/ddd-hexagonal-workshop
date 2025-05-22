@@ -17,7 +17,8 @@ public class Attendee {
         AttendeeEntity attendee = new AttendeeEntity(
                 generateBadgeId(registerAttendeeCommand.email()),
                 registerAttendeeCommand.email(),
-                registerAttendeeCommand.name(),
+                registerAttendeeCommand.name().getFirstName(),
+                registerAttendeeCommand.name().getLastName(),
                 registerAttendeeCommand.isStudent(),
                 registerAttendeeCommand.isEmployee(),
                 registerAttendeeCommand.addressDTO());
