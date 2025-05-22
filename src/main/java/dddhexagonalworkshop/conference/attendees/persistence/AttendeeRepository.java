@@ -8,9 +8,6 @@ import java.util.Optional;
 @ApplicationScoped
 public class AttendeeRepository implements PanacheRepository<AttendeeEntity> {
 
-    public void findByName(String name) {
-    }
-
     public Optional<AttendeeEntity> findByEmail(String email) {
         return Optional.ofNullable(find("email", email).firstResult());
     }
