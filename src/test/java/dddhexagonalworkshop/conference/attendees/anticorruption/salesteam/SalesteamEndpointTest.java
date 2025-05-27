@@ -2,7 +2,7 @@ package dddhexagonalworkshop.conference.attendees.anticorruption.salesteam;
 
 import dddhexagonalworkshop.conference.attendees.api.AddressDTO;
 import dddhexagonalworkshop.conference.attendees.api.MealPreference;
-import dddhexagonalworkshop.conference.attendees.api.RegisterAttendeeCommand;
+import dddhexagonalworkshop.conference.attendees.domain.services.RegisterAttendeeCommand;
 import dddhexagonalworkshop.conference.attendees.domain.services.AttendeeService;
 import dddhexagonalworkshop.conference.attendees.domain.valueobjects.TShirtSize;
 import io.quarkus.test.junit.QuarkusTest;

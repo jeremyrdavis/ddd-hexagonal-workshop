@@ -2,7 +2,7 @@ package dddhexagonalworkshop.conference.attendees.infrastructure;
 
 import dddhexagonalworkshop.conference.attendees.api.AttendeeDTO;
 import dddhexagonalworkshop.conference.attendees.domain.services.AttendeeService;
-import dddhexagonalworkshop.conference.attendees.api.RegisterAttendeeCommand;
+import dddhexagonalworkshop.conference.attendees.domain.services.RegisterAttendeeCommand;
 import io.quarkus.logging.Log;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
@@ -20,7 +20,7 @@ public class AttendeeEndpoint {
     AttendeeService attendeeService;
 
     @POST
-    public Response createAttendee(RegisterAttendeeCommand registerAttendeeCommand) {
+    public Response registerAttendee(RegisterAttendeeCommand registerAttendeeCommand) {
 
         Log.debugf("Creating attendee %s", registerAttendeeCommand);
         AttendeeDTO attendeeDTO = attendeeService.registerAttendee(registerAttendeeCommand);

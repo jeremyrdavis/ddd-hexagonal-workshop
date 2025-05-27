@@ -1,6 +1,6 @@
 package dddhexagonalworkshop.conference.attendees.anticorruption.salesteam;
 
-import dddhexagonalworkshop.conference.attendees.api.RegisterAttendeeCommand;
+import dddhexagonalworkshop.conference.attendees.domain.services.RegisterAttendeeCommand;
 import dddhexagonalworkshop.conference.attendees.domain.services.AttendeeService;
 import io.quarkus.logging.Log;
 import jakarta.inject.Inject;

@@ -1,10 +1,9 @@
 package dddhexagonalworkshop.conference.attendees.domain.services;
 
 import dddhexagonalworkshop.conference.attendees.api.AttendeeDTO;
-import dddhexagonalworkshop.conference.attendees.api.AttendeeRegistrationEvent;
-import dddhexagonalworkshop.conference.attendees.api.RegisterAttendeeCommand;
 import dddhexagonalworkshop.conference.attendees.domain.aggregates.Attendee;
 import dddhexagonalworkshop.conference.attendees.domain.AttendeeRegistrationResult;
+import dddhexagonalworkshop.conference.attendees.infrastructure.AttendeeEventPublisher;
 import dddhexagonalworkshop.conference.attendees.persistence.AttendeeEntity;
 import dddhexagonalworkshop.conference.attendees.persistence.AttendeeRepository;
 import io.quarkus.logging.Log;
@@ -12,8 +11,6 @@ import io.quarkus.narayana.jta.QuarkusTransaction;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
-import org.eclipse.microprofile.reactive.messaging.Channel;
-import org.eclipse.microprofile.reactive.messaging.Emitter;
 
 import java.util.Optional;
 
@@ -23,8 +20,8 @@ public class AttendeeService {
     @Inject
     AttendeeRepository attendeeRepository;
 
-    @Channel("attendees")
-    public Emitter<AttendeeRegistrationEvent> attendeesTopic;
+    @Inject
+    AttendeeEventPublisher attendeeEventPublisher;
 
     @Transactional
     public AttendeeDTO registerAttendee(RegisterAttendeeCommand registerAttendeeCommand) {
@@ -38,7 +35,7 @@ public class AttendeeService {
         });
 
         //notify the system that a new attendee has been registered
-        attendeesTopic.send(result.attendeeRegistrationEvent());
+        attendeeEventPublisher.publish(result.attendeeRegistrationEvent());
 
         AttendeeDTO attendeeDTO = new AttendeeDTO(result.attendee().getFullName(), result.attendee().getEmail());
         Log.debugf("Returning attendee %s", attendeeDTO);

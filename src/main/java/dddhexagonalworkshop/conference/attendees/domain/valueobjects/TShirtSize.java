@@ -1,6 +1,5 @@
 package dddhexagonalworkshop.conference.attendees.domain.valueobjects;
 
-import jakarta.persistence.Embeddable;
 import java.util.Arrays;
 import java.util.List;
 

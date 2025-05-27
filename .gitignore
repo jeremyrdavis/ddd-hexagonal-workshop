@@ -46,3 +46,4 @@ nb-configuration.xml
 
 # Repomix files
 *repomix*
+.aider*
